@@ -1,6 +1,6 @@
 <?php
 
-namespace projectsengine;
+namespace codinginzen;
 
 /**
  * The core plugin class.
@@ -11,9 +11,8 @@ namespace projectsengine;
  * @since      1.0.0
  * @package    SlugDetective
  * @subpackage SlugDetective/includes
- * @author     Projects Engine <contact@projectsengine.com>
  */
-class SlugDetective {
+class Primary {
 
 	/**
 	 * The unique identifier of this plugin.
@@ -44,7 +43,7 @@ class SlugDetective {
 	 */
 	public function __construct() {
 		$this->plugin_name = 'slugdetective';
-		$this->version = '1.0.0';
+		$this->version = '1.0.1';
 	}
 
 	/**
@@ -71,7 +70,8 @@ class SlugDetective {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/SlugDetectiveAdmin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/Detective.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/Field.php';
 
 	}
 
@@ -83,8 +83,11 @@ class SlugDetective {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-		$admin = new SlugDetectiveAdmin( $this->get_plugin_name(), $this->get_version() );
-		$admin->run();
+		$detective = new Detective( $this->get_plugin_name(), $this->get_version() );
+		$detective->run();
+
+		$field = new Field( $this->get_plugin_name(), $this->get_version() );
+		// $field->run();
 	}
 
 	/**

@@ -1,14 +1,12 @@
 <?php
 
 /**
- * @search-informant
+ * @SlugDetective
  *
  * Plugin Name:       SlugDetective
- * Plugin URI:        https://projectsengine.com/plugin/slug-detective
  * Description:       Search posts and pages by slug in the admin area.
- * Version:           1.0.0
- * Author:            Projects Engine
- * Author URI:        https://projectsengine.com/user/dragipostolovski
+ * Version:           1.0.1
+ * Author:            Dragi Postolovski
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       slugdetective
@@ -20,11 +18,10 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-
 /**
  * The core plugin class.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/SlugDetective.php';
+require plugin_dir_path( __FILE__ ) . 'includes/Primary.php';
 
 /**
  * Begins execution of the plugin.
@@ -32,5 +29,5 @@ require plugin_dir_path( __FILE__ ) . 'includes/SlugDetective.php';
  * @since    1.0.0
  */
 
-$plugin = new projectsengine\SlugDetective();
+$plugin = new codinginzen\Primary();
 $plugin->run();
